@@ -9,7 +9,7 @@ const TodoInput = props => {
   const todoInputChangeHandler = event => {
     if (event.target.value.trim().length > 0)
       setIsValid(true);
-    
+
     setEnteredValue(event.target.value);
   };
 
@@ -25,13 +25,9 @@ const TodoInput = props => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className="form-control">
-        <label style={{ color: isValid ? 'black' : 'red'  }}>Checklist Task</label>
+      <div className={`form-control ${isValid ? '' : 'invalid'}`}>
+        <label>Checklist Task</label>
         <input
-          style={{
-            borderColor: isValid ? '#ccc' : 'red',
-            backgroundColor: isValid ? 'transparent' : 'salmon',
-          }}
           type="text"
           value={enteredValue}
           onChange={todoInputChangeHandler}
