@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import TodoInput from './components/TodoInput';
-import './App.css';
+import styles from './App.module.css';
 
 const App = () => {
   const [todoItems, setTodoItems] = useState([
@@ -20,11 +20,12 @@ const App = () => {
   };
 
   return (
-    <div id="app-container">
-      <section id="todo-form">
+    <div className={styles['app-container']}>
+      <section className={styles['todo-form']}>
         <TodoInput onAddTodo={addTodoHandler} />
       </section>
-      <section id="todos">
+      
+      <section className={styles.todos}>
         <ul>
           {todoItems.map(todo => (
             <li key={todo.id} onClick={() => deleteItemHandler(todo.id)}>
